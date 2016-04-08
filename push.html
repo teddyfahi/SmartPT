@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Smart PT - Push-ups</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/animate.min.css" type="text/css">
+    <link rel="stylesheet" href="css/creative.css" type="text/css">
+</head>
+
+<!-- Main content -->
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand page-scroll" href="/iot">Smart PT <i class="fa fa-1x fa-thumbs-o-up wow bounceIn text-primary" data-wow-delay=".1s"></i> </a>
+            </div>
+        </div>
+    </nav>
+
+<section id="services">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading">Workout Progress</h2>
+                <hr class="primary">
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="service-box">
+                    <i class="fa fa-4x fa-check-square-o wow bounceIn text-primary" data-wow-delay=".1s"></i>
+                        <br>
+                        <br>
+                        <div class="text-muted">
+            <!-- Counts repition in set -->
+                        <script>
+                            if (localStorage.repititionCount) {
+                                localStorage.repititionCount=Number(localStorage.repititionCount) +1;
+                                }
+                            else {
+                                localStorage.repititionCount=0;
+                                } document.write(localStorage.repititionCount + " out of 12 push-ups");
+                        </script>
+
+            <!-- Breaks when finished a set -->
+                        <script type="text/javascript">    
+                            if (localStorage.repititionCount >= 12) {
+                                localStorage.removeItem("repititionCount");
+                                window.open ("http://teddyfh.com/iot/break.html");
+                                document.write("Time for a break!");
+                                } 
+                        </script>
+                        </div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <hr>
+
+            <!-- Go to break -->
+            <div class="col-lg-3 col-md-6 text-center">
+                <div class="service-box"><a href="/iot/break.html">
+                    <i class="fa fa-2x fa-pause text-primary" data-wow-delay=".1s"></i></a>
+                        <br>
+                        <br>
+                        <p class="text-muted">Press to break</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- jQuery -->
+<script src="js/jquery.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+<!-- Plugin JavaScript -->
+<script src="js/jquery.easing.min.js"></script>
+<script src="js/jquery.fittext.js"></script>
+<script src="js/wow.min.js"></script>
+<!-- Custom Theme JavaScript -->
+<script src="js/creative.js"></script>  
+
+</body>
+</html>

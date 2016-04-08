@@ -1,0 +1,112 @@
+<html>
+<head>
+	<title>SmartPT</title>
+	<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+  
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/animate.min.css" type="text/css">
+    <link rel="stylesheet" href="css/creative.css" type="text/css">
+    
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Plugin JavaScript -->
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/jquery.fittext.js"></script>
+    <script src="js/wow.min.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="js/creative.js"></script>
+
+</head>
+<body>
+
+<!-- Audio to illustrate break -->
+<audio autoplay>
+  <source src="assets/audio/ToneWobble.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Main content -->
+<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand page-scroll" href="http://teddyfh.com/iot/">Smart PT <i class="fa fa-1x fa-thumbs-o-up wow bounceIn text-primary" data-wow-delay=".1s"></i> </a>
+        </div>
+    </div>
+</nav>
+
+    <div class="container">
+    <hr>
+        <div class="col-lg-12 text-center">
+            <br>
+            <h2 class="section-heading">Break Countdown</h2>
+            <hr class="primary">
+        </div>
+        <br>
+    <div class="progress" id="blips">
+        <div class="progress-bar" role="progressbar">
+        <span class="sr-only"></span>
+        </div>
+    </div>  
+    </div>
+
+<!-- Break countdown 30 sec -->
+<script type="text/javascript">
+    $(function () {
+  var timerId = 0;
+  var ctr=0;
+  var max=10;
+  
+  timerId = setInterval(function () {
+    // interval function
+    ctr++;
+    $('#blips > .progress-bar').attr("style","width:" + ctr*max + "%");
+    
+    // max reached?
+    if (ctr==max){
+      clearInterval(timerId);
+    }
+    
+  }, 2500);
+
+
+  $('.btn-default').click(function () {
+    clearInterval(timerId);
+  });
+
+});
+</script>
+
+    <div class="col-lg-3 col-md-6 text-center">
+        <div class="service-box">
+            <i class="fa fa-3x fa-line-chart wow bounceIn text-primary" data-wow-delay=".1s"></i>
+            <h3>Watch it grow</h3>
+            <div class="text-muted">
+            <script>
+               if (localStorage.totalCount) {
+                   localStorage.totalCount=Number(localStorage.totalCount) +1;
+                    }
+                else {
+                    localStorage.totalCount=1;
+                    }
+                    document.write("In total: " + localStorage.totalCount + " repititions");
+            </script>
+            </div>
+            <br>
+        <p class="text-muted">Keep up the good work!</p>
+        <br>
+        <br>
+        <a href="/iot/push.html" class="btn btn-default">Start next set</a>
+        </div>
+    </div>
+</body>
+</html>
